@@ -12,6 +12,14 @@ angular.module('angularAppApp', [
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/about', {
+        templateUrl: 'views/about.html',
+        controller: 'MainCtrl'
+      })
+      .when('/new', {
+        templateUrl: 'views/new.html',
+        controller: 'NewCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

@@ -7,4 +7,7 @@ angular.module('angularAppApp')
       'AngularJS',
       'Karma'
     ];
+  })
+  .controller('NewCtrl', function ($scope) {
+    $scope.items = ['HTML5 Boilerplate', 'AngularJS', 'Karma'];
   });
