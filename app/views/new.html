@@ -10,9 +10,11 @@
 <div class="panel panel-success" ng-repeat="track in something.tracks">
 	<p>Track name: {{ track.name }}</p>
 	<p>Album release date: {{ track.album.released }}</p>
-		<span ng-repeat="obj in track.external-ids">  
+	<p>Spotify id: {{track.external-ids[0].id}} </p>
+
+	<!-- <span ng-repeat="obj in track.external-ids">  
 			<p>Spotify id: {{ obj.id }}</p>
-		</span>
+		</span> -->
 	
 </div>
 
