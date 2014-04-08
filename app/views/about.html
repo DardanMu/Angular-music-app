@@ -7,11 +7,14 @@
   <h3 class="text-muted">angular app</h3>
 </div>
 
-<div class="jumbotron">
-  <h1>About Us</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a></p>
+<div ng-controller="NewCtrl">
+  <form novalidate class="simple-form">
+    Song: <input type="text" ng-model="song.name" /><br />
+    <button ng-click="update(song)">SAVE</button>
+  </form>
+
+   <pre>form = {{song | json}}</pre>
+  <pre>master = {{master | json}}</pre>
+
 </div>
+

@@ -11,9 +11,20 @@ angular.module('angularAppApp')
   .controller('NewCtrl', function ($scope, $http, $resource) {
     $http.defaults.useXDomain = true;
 
-    var url = encodeURIComponent('artist:eminem');
+    $scope.master = {};
+    $scope.update = function(user) {
+      $scope.master = angular.copy(user);
+    };
+    var song = $scope.master;
 
-    var something = $resource('http://ws.spotify.com/search/1/track.json?q=' + url);
+    console.log('song.name:');
+    console.log(song.name);
+
+    // var url = encodeURIComponent('artist:eminem');
+    // var url = encodeURIComponent(song.name);
+    var apiKey = '435eb016b95cbac6bfa23a58c7e18e89';
+    // var something = $resource('http://ws.spotify.com/search/1/track.json?q=' + url);
+    var something = $resource('http://tinysong.com/b/eminem+monster?format=json&key=' + apiKey);
 
     console.log(something.get());
 
