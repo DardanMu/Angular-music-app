@@ -7,14 +7,20 @@
   <h3 class="text-muted">angular music app</h3>
 </div>
 
-<div class="panel panel-success" ng-repeat="track in something.SongID">
-	<p>Track name: {{ track }}</p>
-	<!-- <p>Album release date: {{ track.album.released }}</p>
-	<p>Spotify id: {{track['external-ids'][0].id}} </p> -->
+<div class="panel panel-success" >
+	<p ng-cloak>Track name: {{ data.SongID }}</p>
 
-	<!-- <span ng-repeat="obj in track.external-ids">  
-			<p>Spotify id: {{ obj.id }}</p>
-		</span> -->
+	<!-- <div ng-cloak> 
+		<object width="250" height="250">
+			<param name="movie" value="http://grooveshark.com/widget.swf">
+			<param name="wmode" value="window">
+			<param name="allowScriptAccess" value="always">
+			<param name="flashvars" value="{{plalistValue}}">
+			<embed src="http://grooveshark.com/widget.swf" type="application/x-shockwave-flash" width="250" height="250" flashvars="hostname=cowbell.grooveshark.com&amp;songIDs=40220269&amp;bbg=B4D5DA&amp;bth=B4D5DA&amp;pfg=B4D5DA&amp;lfg=B4D5DA&amp;bt=813B45&amp;pbg=813B45&amp;pfgh=813B45&amp;si=813B45&amp;lbg=813B45&amp;lfgh=813B45&amp;sb=813B45&amp;bfg=B1BABF&amp;pbgh=B1BABF&amp;lbgh=B1BABF&amp;sbh=B1BABF&amp;p=0" allowscriptaccess="always" wmode="window">
+		</object>
+	</div> -->
+
+	<div ng-include="template.url" ng-cloak></div>
 	
 </div>
 
