@@ -11,15 +11,6 @@ angular.module('angularAppApp')
   .controller('NewCtrl', function ($scope, $http) {
     $http.defaults.useXDomain = true;
 
-    // $scope.master = {};
-    // $scope.update = function(user) {
-    //   $scope.master = angular.copy(user);
-    // };
-    // var song = $scope.master;
-
-    // console.log('song.name:');
-    // console.log(song.name);
-
     // var url = encodeURIComponent('artist:eminem');
     // var url = encodeURIComponent(song.name);
     var apiKey = '435eb016b95cbac6bfa23a58c7e18e89';
