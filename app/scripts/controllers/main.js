@@ -19,7 +19,6 @@ angular.module('angularAppApp')
     .success(function(data){
 
       var playlistValue = 'hostname=cowbell.grooveshark.com&songIDs='+ '40220269' +'&bbg=B4D5DA&bth=B4D5DA&pfg=B4D5DA&lfg=B4D5DA&bt=813B45&pbg=813B45&pfgh=813B45&si=813B45&lbg=813B45&lfgh=813B45&sb=813B45&bfg=B1BABF&pbgh=B1BABF&lbgh=B1BABF&sbh=B1BABF&p=0';
-
       $scope.playlistValue = playlistValue;
       $scope.data = data;
       
@@ -27,7 +26,7 @@ angular.module('angularAppApp')
   })
   .directive('ngPlaylistwidget', function(){
     return {
-        template: '<object width="250" height="250"><param name="movie" value="http://grooveshark.com/widget.swf"><param name="wmode" value="window"><param name="allowScriptAccess" value="always"><param name="flashvars" value="{{playlistValue}}"></object>'
+        templateUrl: 'views/templates/flash-widget.html'
       };
   });
   
