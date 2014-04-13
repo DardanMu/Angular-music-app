@@ -24,8 +24,10 @@ angular.module('angularAppApp')
       $scope.data = data;
       
     });
-
-    $scope.templates = [ { name: 'template1.html', url: 'views/template1.html'} ];
-    $scope.template = $scope.templates[0];
-
+  })
+  .directive('ngPlaylistwidget', function(){
+    return {
+        template: '<object width="250" height="250"><param name="movie" value="http://grooveshark.com/widget.swf"><param name="wmode" value="window"><param name="allowScriptAccess" value="always"><param name="flashvars" value="{{playlistValue}}"></object>'
+      };
   });
+  

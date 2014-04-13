@@ -18,8 +18,7 @@ angular.module('angularAppApp', [
       })
       .when('/new', {
         templateUrl: 'views/new.html',
-        controller: 'NewCtrl',
-        renderOnFirstLoad: false
+        controller: 'NewCtrl'
       })
       .otherwise({
         redirectTo: '/'
