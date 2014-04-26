@@ -7,6 +7,18 @@
   <h3 class="text-muted">angular music app</h3>
 </div>
 
+<div ng-controller="NewCtrl">
+	<form novalidate class="simple-form">
+    Artist: <input type="text" ng-model="artist.name" /><br />
+    <!-- <button ng-click="reset()">RESET</button> -->
+    <button ng-click="update(artist)">Submit</button>
+  </form>
+
+  <pre>form = {{artist2 | json}}</pre>
+  
+
+<br>
+
 <div class="panel panel-success" >
 	<p ng-cloak>Track ID: {{ data.SongID }}</p>
 
@@ -14,4 +26,5 @@
 
 </div>
 
+</div>
 <p id="test"> test2 </p>
