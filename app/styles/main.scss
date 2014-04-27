@@ -106,3 +106,14 @@ body {
     margin: 0 auto;
     width: 35%;
 }
+
+#flash-player {
+    margin: 0 auto;
+    position: relative;
+    width: 90%;
+
+    object {
+        /*position: absolute;*/
+        width: 100%;
+    }
+}
