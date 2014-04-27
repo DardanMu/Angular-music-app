@@ -33,6 +33,7 @@ angular.module('angularAppApp')
         $scope.artistData = data.artist;
         $scope.artistBio = $sce.trustAsHtml(data.artist.bio.summary);
         artistQuery = data.artist.name;
+        console.log(data.artist);
 
         //grooveshark api
         $http.get(groovesharkApi.apiUrl+artistQuery+groovesharkApi.urlParams+groovesharkApi.apiKey)
