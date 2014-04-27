@@ -8,7 +8,7 @@ angular.module('angularAppApp')
       'Karma'
     ];
   })
-  .controller('NewCtrl', function ($scope, $http, $routeParams, $location) {
+  .controller('NewCtrl', function ($scope, $http, $sce, $routeParams, $location) {
     $http.defaults.useXDomain = true;
 
     var groovesharkApi = {
@@ -18,27 +18,37 @@ angular.module('angularAppApp')
     };
 
     var lastFmApi = {
-      'apiUrl' : 'http://ws.audioscrobbler.com/2.0/artist=',
-      'urlParams' : '?method=artist.getinfo&autocorrect=1&format=json&api_key=',
+      'apiUrl' : 'http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=',
+      'urlParams' : '&autocorrect=1&format=json&api_key=',
       'apiKey' : 'b58473f5006d02f1809cfec98c17011d'
     };
  
     $scope.update = function(artist) {
       var artistQuery = encodeURIComponent(artist.name);
 
-      $http.get(groovesharkApi.apiUrl+artistQuery+groovesharkApi.urlParams+groovesharkApi.apiKey)
+      //last fm api
+      $http.get(lastFmApi.apiUrl+artistQuery+lastFmApi.urlParams+lastFmApi.apiKey)
       .success(function(data){
 
-        var playlistValue = '';
-        data.forEach(function(song) {
-          playlistValue = playlistValue + song.SongID +',';
-        });
+        $scope.artistData = data.artist;
+        $scope.artistBio = $sce.trustAsHtml(data.artist.bio.summary);
+        artistQuery = data.artist.name;
 
-        console.log('songs: '+ playlistValue);
-        $scope.playlistValue = playlistValue;
-        // update url
-        $location.search('artist', artist.name);
-      });
+        //grooveshark api
+        $http.get(groovesharkApi.apiUrl+artistQuery+groovesharkApi.urlParams+groovesharkApi.apiKey)
+        .success(function(songs){
+
+          var playlistValue = '';
+          songs.forEach(function(song) {
+            playlistValue = playlistValue + song.SongID +',';
+          });
+
+          console.log('songs: '+ playlistValue);
+          $scope.playlistValue = playlistValue;
+          // update url
+          $location.search('artist', artistQuery);
+        }); // end grooveshark api call
+      }); //end lastfm api call
     };
 
     if ($routeParams.artist) {
