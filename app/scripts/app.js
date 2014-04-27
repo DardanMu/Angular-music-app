@@ -18,7 +18,8 @@ angular.module('angularAppApp', [
       })
       .when('/new', {
         templateUrl: 'views/new.html',
-        controller: 'NewCtrl'
+        controller: 'NewCtrl',
+        reloadOnSearch: false
       })
       .otherwise({
         redirectTo: '/'

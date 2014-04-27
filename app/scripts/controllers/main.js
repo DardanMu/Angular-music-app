@@ -8,7 +8,7 @@ angular.module('angularAppApp')
       'Karma'
     ];
   })
-  .controller('NewCtrl', function ($scope, $http) {
+  .controller('NewCtrl', function ($scope, $http, $routeParams, $location) {
     $http.defaults.useXDomain = true;
 
     var apiKey = '&key=435eb016b95cbac6bfa23a58c7e18e89';
@@ -28,8 +28,16 @@ angular.module('angularAppApp')
 
         console.log('songs: '+ playlistValue);
         $scope.playlistValue = playlistValue;
+        // update url
+        $location.search('artist', artist.name);
       });
     };
+
+    if ($routeParams.artist) {
+      var routeArtist = {'name': $routeParams.artist};
+      $scope.update(routeArtist);
+    }
+
   })
   .directive('ngPlaylistwidget', function(){
     return {
