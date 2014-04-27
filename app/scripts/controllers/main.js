@@ -1,14 +1,8 @@
 'use strict';
 
-angular.module('angularAppApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  })
-  .controller('NewCtrl', function ($scope, $http, $sce, $routeParams, $location) {
+angular.module('angularMusicApp').
+
+  controller('SongCtrl', function ($scope, $http, $sce, $routeParams, $location) {
     $http.defaults.useXDomain = true;
 
     var groovesharkApi = {
@@ -33,7 +27,6 @@ angular.module('angularAppApp')
         $scope.artistData = data.artist;
         $scope.artistBio = $sce.trustAsHtml(data.artist.bio.summary);
         artistQuery = data.artist.name;
-        console.log(data.artist);
 
         //grooveshark api
         $http.get(groovesharkApi.apiUrl+artistQuery+groovesharkApi.urlParams+groovesharkApi.apiKey)
@@ -46,7 +39,7 @@ angular.module('angularAppApp')
 
           console.log('songs: '+ playlistValue);
           $scope.playlistValue = playlistValue;
-          // update url
+          // update url param
           $location.search('artist', artistQuery);
         }); // end grooveshark api call
       }); //end lastfm api call
@@ -57,8 +50,9 @@ angular.module('angularAppApp')
       $scope.update(routeArtist);
     }
 
-  })
-  .directive('ngPlaylistwidget', function(){
+  }).
+
+  directive('ngPlaylistwidget', function(){
     return {
         // templateUrl: 'views/templates/flash-widget.html'
         link: function(scope, element, attrs) {

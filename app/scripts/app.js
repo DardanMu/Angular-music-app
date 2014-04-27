@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularAppApp', [
+angular.module('angularMusicApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
@@ -10,17 +10,13 @@ angular.module('angularAppApp', [
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'MainCtrl'
-      })
-      .when('/new', {
-        templateUrl: 'views/new.html',
-        controller: 'NewCtrl',
+        controller: 'SongCtrl',
         reloadOnSearch: false
       })
+      // .when('/about', {
+      //   templateUrl: 'views/about.html',
+      //   controller: 'MainCtrl'
+      // })
       .otherwise({
         redirectTo: '/'
       });
