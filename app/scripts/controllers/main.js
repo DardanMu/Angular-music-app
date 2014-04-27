@@ -11,14 +11,22 @@ angular.module('angularAppApp')
   .controller('NewCtrl', function ($scope, $http, $routeParams, $location) {
     $http.defaults.useXDomain = true;
 
-    var apiKey = '&key=435eb016b95cbac6bfa23a58c7e18e89';
-    var urlParams = '?format=json&limit=10';
-    var apiUrl = 'http://www.corsproxy.com/tinysong.com/s/';
+    var groovesharkApi = {
+      'apiUrl' : 'http://www.corsproxy.com/tinysong.com/s/',
+      'urlParams' : '?format=json&limit=10&key=',
+      'apiKey' : '435eb016b95cbac6bfa23a58c7e18e89'
+    };
+
+    var lastFmApi = {
+      'apiUrl' : 'http://ws.audioscrobbler.com/2.0/artist=',
+      'urlParams' : '?method=artist.getinfo&autocorrect=1&format=json&api_key=',
+      'apiKey' : 'b58473f5006d02f1809cfec98c17011d'
+    };
  
     $scope.update = function(artist) {
       var artistQuery = encodeURIComponent(artist.name);
 
-      $http.get(apiUrl+artistQuery+urlParams+apiKey)
+      $http.get(groovesharkApi.apiUrl+artistQuery+groovesharkApi.urlParams+groovesharkApi.apiKey)
       .success(function(data){
 
         var playlistValue = '';
