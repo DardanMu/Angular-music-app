@@ -2,8 +2,7 @@
 
 angular.module('angularMusicApp').
 
-  controller('SongCtrl', function ($scope, $http, $sce, $routeParams, $location) {
-    $http.defaults.useXDomain = true;
+  controller('SongCtrl', function ($scope, artistDataFactory, $sce, $routeParams, $location) {
 
     var groovesharkApi = {
       'apiUrl' : 'http://www.corsproxy.com/tinysong.com/s/',
@@ -21,16 +20,14 @@ angular.module('angularMusicApp').
       var artistQuery = encodeURIComponent(artist.name);
 
       //last fm api
-      $http.get(lastFmApi.apiUrl+artistQuery+lastFmApi.urlParams+lastFmApi.apiKey)
-      .success(function(data){
+      artistDataFactory.getArtistData(lastFmApi, artistQuery).success(function(data){
 
         $scope.artistData = data.artist;
         $scope.artistBio = $sce.trustAsHtml(data.artist.bio.summary);
         artistQuery = data.artist.name;
 
         //grooveshark api
-        $http.get(groovesharkApi.apiUrl+artistQuery+groovesharkApi.urlParams+groovesharkApi.apiKey)
-        .success(function(songs){
+        artistDataFactory.getArtistData(groovesharkApi, artistQuery).success(function(songs){
 
           var playlistValue = '';
           songs.forEach(function(song) {
@@ -70,5 +67,14 @@ angular.module('angularMusicApp').
           });
         },
       };
+  }).
+
+  factory('artistDataFactory', function($http){
+    $http.defaults.useXDomain = true;
+    var factory = {};
+    factory.getArtistData = function(apiObj, artistName){
+      return $http.get(apiObj.apiUrl+artistName+apiObj.urlParams+apiObj.apiKey);
+    };
+    return factory;
   });
   
