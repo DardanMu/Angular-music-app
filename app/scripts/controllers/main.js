@@ -12,17 +12,22 @@ angular.module('angularAppApp')
     $http.defaults.useXDomain = true;
 
     $scope.artist2 = {};
-    var apiKey = '435eb016b95cbac6bfa23a58c7e18e89';
+    var apiKey = '&key=435eb016b95cbac6bfa23a58c7e18e89';
+    var urlParams = '?format=json&limit=10';
+    var apiUrl = 'http://www.corsproxy.com/tinysong.com/s/';
  
     $scope.update = function(artist) {
-      // var artist = angular.copy(artist);
-      // console.log(artist);
       $scope.artist2 = angular.copy(artist);
-      var urlQuery = encodeURIComponent(artist.name);
+      var artistQuery = encodeURIComponent(artist.name);
 
-      $http.get('http://www.corsproxy.com/tinysong.com/b/'+urlQuery+'?format=json&key=' + apiKey)
+      $http.get(apiUrl+artistQuery+urlParams+apiKey)
       .success(function(data){
-        var playlistValue = 'hostname=cowbell.grooveshark.com&songIDs='+ data.SongID +'&bbg=B4D5DA&bth=B4D5DA&pfg=B4D5DA&lfg=B4D5DA&bt=813B45&pbg=813B45&pfgh=813B45&si=813B45&lbg=813B45&lfgh=813B45&sb=813B45&bfg=B1BABF&pbgh=B1BABF&lbgh=B1BABF&sbh=B1BABF&p=0';
+
+        var playlistValue = '';
+        data.forEach(function(song) {
+          playlistValue = playlistValue + song.SongID +',';
+        });
+
         console.log(playlistValue);
         $scope.playlistValue = playlistValue;
         $scope.data = data;
@@ -39,10 +44,10 @@ angular.module('angularAppApp')
           attrs.$observe('data', function(value) {
             if (value) {
               element.html(
-                '<object width="450" height="250">'+
+                '<object width="90%" height="380">'+
                   '<param name="movie" value="http://grooveshark.com/widget.swf">'+
                   '<param name="wmode" value="window"><param name="allowScriptAccess" value="always">'+
-                  '<param name="flashvars" value="'+value+'">'+
+                  '<param name="flashvars" value="hostname=cowbell.grooveshark.com&songIDs='+value+'&bbg=B4D5DA&bth=B4D5DA&pfg=B4D5DA&lfg=B4D5DA&bt=813B45&pbg=813B45&pfgh=813B45&si=813B45&lbg=813B45&lfgh=813B45&sb=813B45&bfg=B1BABF&pbgh=B1BABF&lbgh=B1BABF&sbh=B1BABF&p=0">'+
                 '</object>');
             } else {
               element.html('<div></div>');
