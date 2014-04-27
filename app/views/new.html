@@ -9,22 +9,11 @@
 
 <div ng-controller="NewCtrl">
 	<form novalidate class="simple-form">
-    Artist: <input type="text" ng-model="artist.name" /><br />
-    <!-- <button ng-click="reset()">RESET</button> -->
+    <input type="text" ng-model="artist.name" placeholder="Search for Artist"/>
     <button ng-click="update(artist)">Submit</button>
   </form>
-
-  <pre>form = {{artist2 | json}}</pre>
-  
-
-<br>
-
-<div class="panel panel-success" >
-	<p ng-cloak>Track ID: {{ data.SongID }}</p>
+  <br>
 
 	<div ng-Playlistwidget data="{{playlistValue}}"></div>
 
 </div>
-
-</div>
-<p id="test"> test2 </p>

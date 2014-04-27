@@ -11,13 +11,11 @@ angular.module('angularAppApp')
   .controller('NewCtrl', function ($scope, $http) {
     $http.defaults.useXDomain = true;
 
-    $scope.artist2 = {};
     var apiKey = '&key=435eb016b95cbac6bfa23a58c7e18e89';
     var urlParams = '?format=json&limit=10';
     var apiUrl = 'http://www.corsproxy.com/tinysong.com/s/';
  
     $scope.update = function(artist) {
-      $scope.artist2 = angular.copy(artist);
       var artistQuery = encodeURIComponent(artist.name);
 
       $http.get(apiUrl+artistQuery+urlParams+apiKey)
@@ -28,14 +26,10 @@ angular.module('angularAppApp')
           playlistValue = playlistValue + song.SongID +',';
         });
 
-        console.log(playlistValue);
+        console.log('songs: '+ playlistValue);
         $scope.playlistValue = playlistValue;
-        $scope.data = data;
-        // angular.element('#test').remove();
       });
     };
-
-
   })
   .directive('ngPlaylistwidget', function(){
     return {
