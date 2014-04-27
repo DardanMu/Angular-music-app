@@ -7,7 +7,7 @@
 </div>
 
 <div ng-controller="SongCtrl">
-	<form id="search-form" novalidate class="simple-form">
+  <form id="search-form" novalidate class="simple-form">
     <input type="text" ng-model="artist.name" placeholder="Search for Artist"/>
     <button ng-click="update(artist)">Submit</button>
   </form>
@@ -15,7 +15,7 @@
 
   <div ng-include="'views/templates/artist-info.html'"></div> 
     <br>
-	<div ng-Playlistwidget data="{{playlistValue}}" id="flash-player"></div>
+  <div ng-Playlistwidget data="{{playlistValue}}" id="flash-player"></div>
     <br>
   <div ng-include="'views/templates/related-artists.html'"></div> 
 </div>
