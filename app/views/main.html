@@ -1,21 +1,25 @@
-<div class="header">
-  <ul class="nav nav-pills pull-right">
-    <li class="active"><a ng-href="#/">Home</a></li>
-    <li><a ng-href="#/about">About</a></li>
-  </ul>
-  <h3 class="text-muted">angular music app</h3>
-</div>
-
 <div ng-controller="SongCtrl">
-  <form id="search-form" novalidate class="simple-form">
-    <input type="text" ng-model="artist.name" placeholder="Search for Artist"/>
-    <button ng-click="update(artist)">Submit</button>
-  </form>
-  <br>
 
-  <div ng-include="'views/templates/artist-info.html'"></div> 
+  <div class="header">
+    <ul class="nav nav-pills pull-right">
+      <li class="active"><a ng-href="#/">Home</a></li>
+      <li><a ng-href="#/about">About</a></li>
+    </ul>
+    <a ng-click="reset('/')" href=""><h3 class="text-muted">angular music app</h3></a>
+  </div>
+
+  <div id="music-data">
+    <form id="search-form" novalidate class="simple-form">
+      <input type="text" ng-model="artist.name" placeholder="Search for Artist"/>
+      <button ng-click="update(artist)">Submit</button>
+    </form>
     <br>
-  <div ng-Playlistwidget data="{{playlistValue}}" id="flash-player"></div>
+
+    <div ng-show="artistData" ng-include="'views/templates/artist-info.html'"></div> 
     <br>
-  <div ng-show="artistData" ng-include="'views/templates/related-artists.html'"></div> 
+    <div ng-Playlistwidget data="{{playlistValue}}" id="flash-player"></div>
+    <br>
+    <div ng-show="artistData" ng-include="'views/templates/related-artists.html'"></div> 
+  </div>
+
 </div>

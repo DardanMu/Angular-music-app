@@ -1,7 +1,7 @@
 'use strict';
 var app = angular.module('angularMusicApp');
 app.controller('SongCtrl', function ($scope, lastFmFactory, groovesharkFactory, $sce, $routeParams, $location) {
- 
+
     $scope.update = function(artist) {
       var artistQuery = encodeURIComponent(artist.name);
 
@@ -26,6 +26,15 @@ app.controller('SongCtrl', function ($scope, lastFmFactory, groovesharkFactory, 
           $location.search('artist', artistQuery);
         }); // end grooveshark api call
       }); //end lastfm api call
+    };
+
+    $scope.reset = function (path) {
+      //set $scope variables to null and go to base url path
+      $scope.playlistValue = null;
+      $scope.artistData = null;
+      $scope.artistBio = null;
+
+      $location.url(path);
     };
 
     if ($routeParams.artist) {
