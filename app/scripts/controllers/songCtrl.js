@@ -10,6 +10,7 @@ app.controller('SongCtrl', function ($scope, lastFmFactory, groovesharkFactory, 
         var data = response.data;
         //get artist events here
         $scope.artistData = data.artist;
+        $scope.artistEvents = data.events;
         $scope.artistBio = $sce.trustAsHtml(data.artist.bio.summary);
         artistQuery = data.artist.name;
 
