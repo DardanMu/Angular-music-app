@@ -15,10 +15,12 @@
     </form>
     <br>
 
-    <div ng-show="artistData" ng-include="'views/templates/artist-info.html'"></div> 
-    <br>
-    <div ng-Playlistwidget data="{{playlistValue}}" id="flash-player"></div>
-    <br>
+
+<div class="row">
+    <div class="col-md-6" ng-show="artistData" ng-include="'views/templates/artist-info.html'"></div> 
+    <div class="col-md-6" ng-Playlistwidget data="{{playlistValue}}" id="flash-player"></div>
+</div>
+
     <div ng-show="artistData" ng-include="'views/templates/related-artists.html'"></div> 
   </div>
 
