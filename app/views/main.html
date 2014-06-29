@@ -9,10 +9,12 @@
   </div>
 
   <div id="music-data">
-    <form id="search-form" novalidate class="simple-form">
-      <input type="text" ng-model="artist.name" placeholder="Search for Artist"/>
-      <button ng-click="update(artist)">Submit</button>
+
+    <form id="search-form" class="form-inline" role="form" novalidate class="simple-form">
+      <input type="text" class="form-control artist-input" ng-model="artist.name" placeholder="Search for Artist">
+      <button class="btn btn-default" ng-disabled="!artist.name" ng-click="update(artist)">Submit</button>
     </form>
+
     <br>
 
 
@@ -22,6 +24,6 @@
 </div>
 
     <div ng-show="artistData" ng-include="'views/templates/related-artists.html'"></div> 
-  </div>
+</div>
 
 </div>
