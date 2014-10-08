@@ -3,7 +3,8 @@
 app.factory('lastFmFactory', function($http){
     $http.defaults.useXDomain = true;
 
-    var lastFmApi = {
+    var apiUrls = {
+      'songsByArtist'       : 'http://music-app-server.local:3000/api/v1.0/songsByArtist?artist=',
       'artistInfo'          : 'http://music-app-server.local:3000/api/v1.0/artist?name=',
       'artistEvents'        : 'http://music-app-server.local:3000/api/v1.0/eventsByArtist',
       'eventsByLocation'    : 'http://music-app-server.local:3000/api/v1.0/eventsByLocation',
@@ -13,8 +14,12 @@ app.factory('lastFmFactory', function($http){
 
     var factory = {};
 
+    factory.getSongs = function(artistName){
+      return $http.get(apiUrls.songsByArtist+artistName);
+    };
+
     factory.getArtistData = function(artistName){
-      return $http.get(lastFmApi.artistInfo+artistName);
+      return $http.get(apiUrls.artistInfo+artistName);
     };
 
     factory.getArtistEventData = function(artistName, location){

@@ -1,12 +1,12 @@
 'use strict';
 var app = angular.module('angularMusicApp');
-app.controller('SongCtrl', function ($scope, lastFmFactory, groovesharkFactory, $sce, $routeParams, $location) {
+app.controller('SongCtrl', function ($scope, apiDataFactory, $sce, $routeParams, $location) {
 
     $scope.update = function(artist) {
       var artistQuery = encodeURIComponent(artist.name);
 
       //last fm api
-      lastFmFactory.getArtistData(artistQuery).then(function(response){
+      apiDataFactory.getArtistData(artistQuery).then(function(response){
         var data = response.data;
         //get artist events here
         $scope.artistData = data.artist;
@@ -16,7 +16,7 @@ app.controller('SongCtrl', function ($scope, lastFmFactory, groovesharkFactory, 
         artistQuery = data.artist.name;
 
         //grooveshark api
-        groovesharkFactory.getSongs(artistQuery).then(function(response){
+        apiDataFactory.getSongs(artistQuery).then(function(response){
           var songs = response.data;
           var playlistValue = '';
           songs.forEach(function(song) {
