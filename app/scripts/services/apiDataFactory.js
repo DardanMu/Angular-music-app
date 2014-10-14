@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('lastFmFactory', function($http){
+app.factory('apiDataFactory', function($http){
     $http.defaults.useXDomain = true;
 
     var apiUrls = {
