@@ -1,6 +1,6 @@
 'use strict';
 var app = angular.module('angularMusicApp');
-app.controller('HomeCtrl', function ($scope, lastFmFactory, groovesharkFactory, $state) {
+app.controller('HomeCtrl', function ($scope, apiDataFactory, $state) {
 
   console.log('homepage');
 
