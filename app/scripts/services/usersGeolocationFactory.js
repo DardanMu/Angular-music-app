@@ -1,36 +1,27 @@
 'use strict';
 
-app.factory('usersGeolocationFactory', function(geolocation){
+app.factory('usersGeolocationFactory', function($q, geolocation){
+    var factory = {};
 
     var location;
 
-    var factory = {};
-
     factory.getLocation = function(){
 
-      if (location) {
-        return location;
-      }else{
+        var deferred = $q.defer();
 
-        geolocation.getLocation().then(function(data){
-            // $scope.coords = {lat:data.coords.latitude, long:data.coords.longitude};
-            location = {lat:data.coords.latitude, long:data.coords.longitude};
-            return location;
-        }).fail(function(error){
-            console.log(error);
-            return false;
-        });
+        if (location) {
+            deferred.resolve(location);
+        }else{
+            geolocation.getLocation().then(function(data){
+                location = {lat:data.coords.latitude, long:data.coords.longitude};
+                deferred.resolve(location);
 
-      }
-
+            }).catch(function(error){
+                deferred.reject(false);
+            });
+        }
+        return deferred.promise;
     };
 
-    // factory.setLocation = function(usersLocation){
-    //   location = usersLocation;
-    // };
-
-
-
     return factory;
-
   });

@@ -5,7 +5,8 @@ angular.module('angularMusicApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'ui.router'
+  'ui.router',
+  'geolocation'
 ])
   // .config(function ($routeProvider) {
   //   $routeProvider
