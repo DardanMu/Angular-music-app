@@ -1,8 +1,15 @@
 'use strict';
 var app = angular.module('angularMusicApp');
-app.controller('SongCtrl', function ($scope, apiDataFactory, $sce, $routeParams, $location) {
+app.controller('SongCtrl', function ($scope, apiDataFactory, $sce, $stateParams, $location) {
+
+      var resetView = function () {
+      $scope.playlistValue = null;
+      $scope.artistData = null;
+      $scope.artistBio = null;
+    };
 
     $scope.update = function(artist) {
+      resetView();
       var artistQuery = encodeURIComponent(artist.name);
 
       //last fm api
@@ -11,37 +18,28 @@ app.controller('SongCtrl', function ($scope, apiDataFactory, $sce, $routeParams,
         //get artist events here
         $scope.artistData = data.artist;
         $scope.artistEvents = data.events;
-        console.log($scope.artistEvents);
         $scope.artistBio = $sce.trustAsHtml(data.artist.bio.summary);
-        artistQuery = data.artist.name;
 
         //grooveshark api
-        apiDataFactory.getSongs(artistQuery).then(function(response){
+        apiDataFactory.getSongs(data.artist.name).then(function(response){
           var songs = response.data;
           var playlistValue = '';
           songs.forEach(function(song) {
             playlistValue = playlistValue + song.SongID +',';
           });
 
-          console.log('songs: '+ playlistValue);
           $scope.playlistValue = playlistValue;
+
           // update url param
-          $location.search('artist', artistQuery);
+          //this refreshes the page, need to find a better way to do it.
+          // $location.search('artist', artistQuery);
+
         }); // end grooveshark api call
       }); //end lastfm api call
     };
 
-    $scope.reset = function (path) {
-      //set $scope variables to null and go to base url path
-      $scope.playlistValue = null;
-      $scope.artistData = null;
-      $scope.artistBio = null;
-
-      $location.url(path);
-    };
-
-    if ($routeParams.artist) {
-      var routeArtist = {'name': $routeParams.artist};
+    if ($stateParams.artist) {
+      var routeArtist = {'name': $stateParams.artist};
       $scope.update(routeArtist);
     }
 

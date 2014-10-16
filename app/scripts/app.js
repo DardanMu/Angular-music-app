@@ -8,23 +8,6 @@ angular.module('angularMusicApp', [
   'ui.router',
   'geolocation'
 ])
-  // .config(function ($routeProvider) {
-  //   $routeProvider
-  //     .when('/', {
-  //       templateUrl: 'views/main.html',
-  //       controller: 'SongCtrl',
-  //       reloadOnSearch: false
-  //     })
-  //     // .when('/about', {
-  //     //   templateUrl: 'views/about.html',
-  //     //   controller: 'MainCtrl'
-  //     // })
-  //     .otherwise({
-  //       redirectTo: '/'
-  //     });
-  // });
-
-
   .config(function($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise("/");
@@ -36,7 +19,7 @@ angular.module('angularMusicApp', [
       controller: 'HomeCtrl'
     })
     .state('look-up-artist', {
-      url: "/look-up-artist",
+      url: "/look-up-artist?artist",
       templateUrl: "views/main.html",
       controller: 'SongCtrl'
     })

@@ -2,4 +2,7 @@
 
 <p>location: lat: {{location.lat}} - long: {{location.long}}</p>
 
-<button ng-click="test2()">Click me</button>
+<form id="search-form" class="form-inline" role="form" novalidate class="simple-form">
+      <input type="text" class="form-control artist-input" ng-model="artist" placeholder="Search for Artist/Band">
+      <button class="btn btn-default" ng-click="look_up_artist(artist)">Submit</button>
+</form>
