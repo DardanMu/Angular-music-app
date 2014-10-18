@@ -77,6 +77,10 @@ body {
     display: inline;
     list-style: none;
     margin-right: 10px;
+
+    a{
+        cursor: pointer;
+    }
 }
 
 #search-form {

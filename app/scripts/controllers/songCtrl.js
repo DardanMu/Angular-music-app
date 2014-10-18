@@ -11,6 +11,7 @@ app.controller('SongCtrl', function ($scope, apiDataFactory, $sce, $stateParams,
     $scope.update = function(artist) {
       resetView();
       var artistQuery = encodeURIComponent(artist.name);
+      $location.search('artist', artistQuery);
 
       //last fm api
       apiDataFactory.getArtistData(artistQuery).then(function(response){
@@ -29,10 +30,6 @@ app.controller('SongCtrl', function ($scope, apiDataFactory, $sce, $stateParams,
           });
 
           $scope.playlistValue = playlistValue;
-
-          // update url param
-          //this refreshes the page, need to find a better way to do it.
-          // $location.search('artist', artistQuery);
 
         }); // end grooveshark api call
       }); //end lastfm api call
