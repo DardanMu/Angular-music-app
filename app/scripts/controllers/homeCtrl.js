@@ -10,9 +10,9 @@ app.controller('HomeCtrl', function ($scope, apiDataFactory, $state, usersGeoloc
       $scope.location = data;
   });
 
-  $scope.look_up_artist = function(artistName)
+  $scope.look_up_artist = function(artistObj)
   {
-      $state.go('look-up-artist', {artist: artistName});
+      $state.go('look-up-artist', {artist: artistObj.name});
   }
 
 });

@@ -8,7 +8,7 @@ app.controller('SongCtrl', function ($scope, apiDataFactory, $sce, $stateParams,
       $scope.artistBio = null;
     };
 
-    $scope.update = function(artist) {
+    $scope.look_up_artist = function(artist) {
       resetView();
       var artistQuery = encodeURIComponent(artist.name);
 
@@ -37,7 +37,7 @@ app.controller('SongCtrl', function ($scope, apiDataFactory, $sce, $stateParams,
 
     if ($stateParams.artist) {
       var routeArtist = {'name': $stateParams.artist};
-      $scope.update(routeArtist);
+      $scope.look_up_artist(routeArtist);
     }
 
   });

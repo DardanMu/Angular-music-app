@@ -2,30 +2,25 @@
 <div>
 
     <div class="header">
-        <ul class="nav nav-pills pull-right">
-            <li class="active"><a ng-href="#/">Home</a></li>
-            <li><a ng-href="#/about">About</a></li>
-        </ul>
         <a ui-sref="home"><h3 class="text-muted">angular music app</h3></a>
     </div>
 
     <div id="music-data">
 
-        <form id="search-form" class="form-inline" role="form" novalidate class="simple-form">
-            <input type="text" class="form-control artist-input" ng-model="artist.name" placeholder="Search for Artist">
-            <button class="btn btn-default" ng-disabled="!artist.name" ng-click="update(artist)">Submit</button>
-        </form>
+        <div ng-include="'views/templates/search-bar.html'"></div>
 
         <br>
 
 
         <div class="row">
-            <div class="col-md-6" ng-show="artistData" ng-include="'views/templates/artist-info.html'"></div>
-            <div class="col-md-6" ng-Playlistwidget data="{{playlistValue}}" id="flash-player"></div>
+            <div class="large-6 columns" ng-show="artistData" ng-include="'views/templates/artist-info.html'"></div>
+            <div class="large-6 columns" ng-Playlistwidget data="{{playlistValue}}" id="flash-player"></div>
         </div>
-        <div class="row">
+
+
+        <!-- <div class="row">
             <div class="col-md-12" ng-show="artistEvents" ng-include="'views/templates/events.html'"></div>
-        </div>
+        </div> -->
 
         <div ng-show="artistData" ng-include="'views/templates/related-artists.html'"></div>
     </div>
