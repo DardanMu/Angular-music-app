@@ -11,11 +11,11 @@ app.controller('SongCtrl', function ($scope, apiDataFactory, $sce, $stateParams,
     $scope.update = function(artist) {
       resetView();
       var artistQuery = encodeURIComponent(artist.name);
-      $location.search('artist', artistQuery);
 
       //last fm api
       apiDataFactory.getArtistData(artistQuery).then(function(response){
         var data = response.data;
+        $location.search('artist', data.artist.name);
         //get artist events here
         $scope.artistData = data.artist;
         $scope.artistEvents = data.events;
