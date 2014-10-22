@@ -4,6 +4,8 @@ app.controller('HomeCtrl', function ($scope, apiDataFactory, $state, usersGeoloc
 
   console.log('homepage');
 
+  $state.go('home.intro');
+
   var geoLocationPromise = usersGeolocationFactory.getLocation();
 
   geoLocationPromise.then(function(data){

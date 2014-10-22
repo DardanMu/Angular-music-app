@@ -33,6 +33,11 @@ angular.module('angularMusicApp', [
             "currentMusicTrends": { templateUrl: "views/home/events.html" }
         }
     })
+    .state('home.intro', {
+        views: {
+            "currentMusicTrends": { templateUrl: "views/home/intro.html" }
+        }
+    })
 
     .state('look-up-artist', {
       url: "/look-up-artist?artist",
