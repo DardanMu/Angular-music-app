@@ -9,7 +9,7 @@
 
 /* Space out content a bit */
 body {
-    padding-top: 20px;
+    // padding-top: 20px;
     padding-bottom: 20px;
 }
 
@@ -85,10 +85,6 @@ body {
     }
 }
 
-// #search-form {
-//     margin: 0 auto;
-//     width: 30%;
-// }
 
 #flash-player{
     object{
@@ -96,18 +92,14 @@ body {
     }
 }
 
-/*Need to restructure the css in a way to account for many screen sizes*/
-/*    #search-form {
+// .homepage-tabs{
+//     margin:0 auto;
+// }
 
-        .artist-input{
-            width: 70%;
-        }
-        .btn{
-            width: 40%;
-            margin-left: 30%;
-        }
-    }*/
-
+.search__form--homepage{
+    background-color: #333333;
+    padding-top: 20px;
+}
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
@@ -131,13 +123,5 @@ body {
         border-bottom: 0;
     }
 
-    // #search-form {
-    //     margin: 0 auto;
-    //     width: 35%;
-
-    //     .artist-input{
-    //         width: 70%;
-    //     }
-    // }
 }
 

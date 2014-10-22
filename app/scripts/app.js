@@ -20,17 +20,17 @@ angular.module('angularMusicApp', [
     })
     .state('home.topArtists', {
         views: {
-            "newMusicInfo": { templateUrl: "views/home/topArtists.html" }
+            "currentMusicTrends": { templateUrl: "views/home/topArtists.html" }
         }
     })
     .state('home.hypedArtists', {
         views: {
-            "newMusicInfo": { templateUrl: "views/home/hypedArtists.html" }
+            "currentMusicTrends": { templateUrl: "views/home/hypedArtists.html" }
         }
     })
     .state('home.events', {
         views: {
-            "newMusicInfo": { templateUrl: "views/home/events.html" }
+            "currentMusicTrends": { templateUrl: "views/home/events.html" }
         }
     })
 
