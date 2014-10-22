@@ -15,12 +15,28 @@ angular.module('angularMusicApp', [
   $stateProvider
     .state('home', {
       url: "/",
-      templateUrl: "views/home.html",
+      templateUrl: "views/home/index.html",
       controller: 'HomeCtrl'
     })
+    .state('home.topArtists', {
+        views: {
+            "newMusicInfo": { templateUrl: "views/home/topArtists.html" }
+        }
+    })
+    .state('home.hypedArtists', {
+        views: {
+            "newMusicInfo": { templateUrl: "views/home/hypedArtists.html" }
+        }
+    })
+    .state('home.events', {
+        views: {
+            "newMusicInfo": { templateUrl: "views/home/events.html" }
+        }
+    })
+
     .state('look-up-artist', {
       url: "/look-up-artist?artist",
-      reloadOnSearch : false,
+      reloadOnSearch: false,
       templateUrl: "views/main.html",
       controller: 'SongCtrl'
     })

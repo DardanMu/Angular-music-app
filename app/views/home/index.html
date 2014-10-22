@@ -1,0 +1,18 @@
+<p> Homepage... </p>
+
+<p>location: lat: {{location.lat}} - long: {{location.long}}</p>
+
+<div ng-include="'views/templates/search-bar.html'"></div>
+
+<ul>
+    <li><a ui-sref="home.hypedArtists">hyped artists</a></li>
+    <li><a ui-sref="home.topArtists">top artists</a></li>
+    <li><a ui-sref="home.events">events</a></li>
+</ul>
+
+
+
+
+
+<div ui-view="newMusicInfo"></div>
+
