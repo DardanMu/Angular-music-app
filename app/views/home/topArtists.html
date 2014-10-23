@@ -1,1 +1,11 @@
-top artists
+<p>top artists in your area</p>
+
+<ul>
+    <li ng-repeat="artist in topArtists">
+        <a ui-sref="look-up-artist({artist: artist.name})">
+            {{artist.name}}
+            <img ng-src="{{artist.image[3]['#text']}}" alt="">
+        </a>
+    </li>
+</ul>
+
