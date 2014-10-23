@@ -36,7 +36,7 @@ app.factory('apiDataFactory', function($http){
     };
 
     factory.getHypedArtists = function(){
-        return $http.get(apiUrls.hypedArtists);
+        return $http.get(apiUrls.hypedArtists, { cache: true});
     };
 
 

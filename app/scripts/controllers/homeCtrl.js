@@ -18,4 +18,12 @@ app.controller('HomeCtrl', function ($scope, apiDataFactory, $state, usersGeoloc
       $state.go('look-up-artist', {artist: artistObj.name});
   }
 
+    apiDataFactory.getHypedArtists()
+        .then(function(hypedArtists){
+            $scope.hypedArtists = hypedArtists.data.artists.artist;
+            console.log(hypedArtists.data);
+        });
+
+
+
 });
