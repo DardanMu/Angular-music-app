@@ -4,29 +4,20 @@
 
 <div class="search__form--homepage" ng-include="'views/templates/search-bar.html'"></div>
 
-<!--     <ul class="inline-list homepage-tabs">
-        <li ng-class="{'homepage-tabs--active': ('home.hypedArtists'|isState)}"><a ui-sref="home.hypedArtists">hyped artists</a></li>
-        <li ng-class="{'homepage-tabs--active': ('home.topArtists'|isState)}"><a ui-sref="home.topArtists">top artists</a></li>
-        <li ng-class="{'homepage-tabs--active': ('home.events'|isState)}"><a ui-sref="home.events">events</a></li>
-    </ul> -->
-
     <div class="homepage-tabs icon-bar three-up">
         <a ui-sref="home.hypedArtists" ng-class="{'homepage-tabs--active': ('home.hypedArtists'|isState)}" class="item">
-            <img src="../assets/img/images/fi-home.svg" >
+            <img src="../images/ic_trending_up_white_48dp.png">
             <label>Rising stars</label>
         </a>
         <a ui-sref="home.topArtists" ng-class="{'homepage-tabs--active': ('home.topArtists'|isState)}" class="item">
-            <img src="../assets/img/images/fi-bookmark.svg" >
+            <img src="../images/ic_poll_white_48dp.png">
             <label>Top Artists</label>
         </a>
         <a ui-sref="home.events" ng-class="{'homepage-tabs--active': ('home.events'|isState)}" class="item">
-            <img src="../assets/img/images/fi-info.svg" >
+            <img src="../images/ic_today_white_48dp.png">
             <label>Events</label>
         </a>
     </div>
-
-
-
 
 
 

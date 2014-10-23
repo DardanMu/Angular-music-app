@@ -101,6 +101,11 @@ body {
     padding-top: 20px;
 }
 
+.homepage-tabs{
+    .homepage-tabs--active{
+        background-color: #019A70;
+    }
+}
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
 /*    .container {
