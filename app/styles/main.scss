@@ -106,6 +106,163 @@ body {
         background-color: #019A70;
     }
 }
+
+
+
+//artist list styles
+
+.artist-list__item{
+    max-width: 250px;
+    max-height: 250px;
+    margin-bottom: 10px;
+}
+
+
+.artist-list figure {
+    position: relative;
+    float: left;
+    overflow: hidden;
+    margin: 10px 1%;
+    // min-width: 320px;
+    // max-width: 480px;
+    // max-height: 360px;
+    // width: 48%;
+    // height: auto;
+    background: #3085a3;
+    text-align: center;
+    cursor: pointer;
+}
+
+.artist-list figure img {
+    position: relative;
+    display: block;
+    // min-height: 100%;
+    // max-width: 100%;
+
+    height: 250px;
+    width: 250px;
+
+    opacity: 0.8;
+}
+
+.artist-list figure figcaption {
+    padding: 2em;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.25em;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.artist-list figure figcaption::before,
+.artist-list figure figcaption::after {
+    pointer-events: none;
+}
+
+.artist-list figure figcaption,
+.artist-list figure figcaption > a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Anchor will cover the whole item by default */
+/* For some effects it will show as a button */
+.artist-list figure figcaption > a {
+    z-index: 1000;
+    text-indent: 200%;
+    white-space: nowrap;
+    font-size: 0;
+    opacity: 0;
+}
+
+.artist-list figure h2 {
+    word-spacing: -0.15em;
+    font-weight: 300;
+}
+
+.artist-list figure h2 span {
+    font-weight: 800;
+}
+
+.artist-list figure h2,
+.artist-list figure p {
+    margin: 0;
+}
+
+.artist-list figure p {
+    letter-spacing: 1px;
+    font-size: 68.5%;
+}
+
+
+//selena style
+
+
+figure.effect-selena {
+    background: #AFADCB;
+}
+
+figure.effect-selena img {
+    opacity: 0.95;
+    -webkit-transition: -webkit-transform 0.35s;
+    transition: transform 0.35s;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+}
+
+figure.effect-selena:hover img {
+    -webkit-transform: scale3d(0.95,0.95,1);
+    transform: scale3d(0.95,0.95,1);
+}
+
+figure.effect-selena h2 {
+    -webkit-transition: -webkit-transform 0.35s;
+    transition: transform 0.35s;
+    -webkit-transform: translate3d(0,20px,0);
+    transform: translate3d(0,20px,0);
+}
+
+figure.effect-selena p {
+    opacity: 0;
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+    -webkit-transform: perspective(1000px) rotate3d(1,0,0,90deg);
+    transform: perspective(1000px) rotate3d(1,0,0,90deg);
+    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+}
+
+figure.effect-selena:hover h2 {
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+
+figure.effect-selena:hover p {
+    opacity: 1;
+    -webkit-transform: perspective(1000px) rotate3d(1,0,0,0);
+    transform: perspective(1000px) rotate3d(1,0,0,0);
+}
+
+
+
+
+//end artist list styles
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
 /*    .container {
