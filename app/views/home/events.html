@@ -1,1 +1,7 @@
-events
+<ul>
+    <li ng-repeat="event in events">
+        <p> {{event.title}} </p>
+        <p> {{event.venue.name}} - {{event.venue.location.city}} - {{event.venue.website}}</p>
+        <p> <img ng-src="{{event.image[3]['#text']}}" alt=""/> </p>
+    </li>
+</ul>

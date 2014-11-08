@@ -2,19 +2,16 @@
 var app = angular.module('angularMusicApp');
 app.controller('HomeCtrl', function ($scope, apiDataFactory, $state, usersGeolocationFactory) {
 
-  console.log('homepage');
-
-  // $state.go('home.intro');
   if ($state.is('home')) {
       $state.go('home.intro');
   };
 
   var geoLocationPromise = usersGeolocationFactory.getLocation();
 
-  geoLocationPromise.then(function(data){
-      $scope.location = data;
-      // console.log(data);
-  });
+  // geoLocationPromise.then(function(data){
+  //     $scope.location = data;
+  //     // console.log(data);
+  // });
 
   $scope.look_up_artist = function(artistObj)
   {
@@ -33,10 +30,16 @@ app.controller('HomeCtrl', function ($scope, apiDataFactory, $state, usersGeoloc
     geoLocationPromise.then(function(location){
 
         apiDataFactory.getTopArtists(location)
-            .then(function(topArtists){
-                $scope.topArtists = topArtists.data.topartists.artist;
-                $scope.location_country = topArtists.data.topartists['@attr'].country;
-                // console.log(topArtists.data.topartists['@attr']);
+            .then(function(results){
+                $scope.topArtists = results.data.topartists.artist;
+                $scope.location_country = results.data.topartists['@attr'].country;
+            });
+
+        apiDataFactory.getEventsByLocation(location)
+            .then(function(results){
+                $scope.events = results.data.events.event;
+                // console.log(results);
+                // $scope.location_country = results.data.topartists['@attr'].country;
             });
 
     });
