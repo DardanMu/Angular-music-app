@@ -32,7 +32,8 @@ app.controller('HomeCtrl', function ($scope, apiDataFactory, $state, usersGeoloc
         apiDataFactory.getTopArtists(location)
             .then(function(topArtists){
                 $scope.topArtists = topArtists.data.topartists.artist;
-                // console.log(topArtists.data);
+                $scope.location_country = topArtists.data.topartists['@attr'].country;
+                // console.log(topArtists.data.topartists['@attr']);
             });
 
     });

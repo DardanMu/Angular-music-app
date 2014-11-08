@@ -1,4 +1,6 @@
-<p ng-hide="hypedArtists">Loading...</p>
+<!-- <p ng-hide="hypedArtists">Loading...</p> -->
+
+<img class="loader__image" ng-hide="hypedArtists" src="images/loading.gif" alt="Loading..."/>
 
 <ul class="artist-list small-block-grid-2 medium-block-grid-3 large-block-grid-5">
     <li class="artist-list__item" ng-repeat="artist in hypedArtists">

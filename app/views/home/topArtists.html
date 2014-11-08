@@ -1,11 +1,17 @@
-<p>top artists in your area</p>
+<img class="loader__image" ng-hide="topArtists" src="images/loading.gif" alt="Loading..."/>
 
-<ul>
-    <li ng-repeat="artist in topArtists">
+<h4 ng-show="topArtists"> <small>Top artists in</small> {{location_country}} </h4>
+
+<ul class="artist-list small-block-grid-2 medium-block-grid-3 large-block-grid-5">
+    <li class="artist-list__item" ng-repeat="artist in topArtists">
         <a ui-sref="look-up-artist({artist: artist.name})">
-            {{artist.name}}
-            <img ng-src="{{artist.image[3]['#text']}}" alt="">
+            <figure class="effect-steve">
+                <img ng-src="{{artist.image[2]['#text']}}" alt=""/>
+                <figcaption>
+                    <!-- <h2>{{artist.name}}</h2> -->
+                    <p>{{artist.name}}</p>
+                </figcaption>
+            </figure>
         </a>
     </li>
 </ul>
-

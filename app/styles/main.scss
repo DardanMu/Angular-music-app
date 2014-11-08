@@ -107,6 +107,11 @@ body {
     }
 }
 
+.loader__image{
+    margin: 30px auto;
+    display: block;
+}
+
 //artist list styles
 
 .artist-list{
@@ -115,7 +120,7 @@ body {
     .artist-list__item{
         // max-width: 250px;
         // max-height: 250px;
-        margin-bottom: 10px;
+        // margin-bottom: 10px;
     }
 
     figure {
