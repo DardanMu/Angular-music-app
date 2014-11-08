@@ -4,7 +4,10 @@ app.controller('HomeCtrl', function ($scope, apiDataFactory, $state, usersGeoloc
 
   console.log('homepage');
 
-  $state.go('home.intro');
+  // $state.go('home.intro');
+  if ($state.is('home')) {
+      $state.go('home.intro');
+  };
 
   var geoLocationPromise = usersGeolocationFactory.getLocation();
 

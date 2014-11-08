@@ -1,14 +1,39 @@
-<form novalidate>
-    <div class="row">
-        <div class="large-6 large-offset-3 columns">
-            <div class="row collapse postfix-round">
-                <div class="small-9 columns">
-                    <input type="text" ng-model="artist.name" placeholder="Search for Artist/Band">
-                </div>
-                <div class="small-3 columns">
-                    <button ng-click="look_up_artist(artist)" ng-class="{disabled: !artist.name}" class="button postfix">Go</button>
-                </div>
-            </div>
+<div class="row navigation__bar">
+
+    <div class="large-6 columns">
+
+        <div class="homepage-tabs icon-bar three-up">
+            <a ui-sref="home.hypedArtists" ng-class="{'homepage-tabs--active': ('home.hypedArtists'|isState)}" class="item">
+                <img src="../images/ic_trending_up_white_48dp.png">
+                <label>Rising stars</label>
+            </a>
+            <a ui-sref="home.topArtists" ng-class="{'homepage-tabs--active': ('home.topArtists'|isState)}" class="item">
+                <img src="../images/ic_poll_white_48dp.png">
+                <label>Top Artists</label>
+            </a>
+            <a ui-sref="home.events" ng-class="{'homepage-tabs--active': ('home.events'|isState)}" class="item">
+                <img src="../images/ic_today_white_48dp.png">
+                <label>Events</label>
+            </a>
         </div>
     </div>
-</form>
+
+
+    <div class="large-5 large-offset-1 columns">
+
+        <form class="search__form" novalidate>
+                <!-- <div class="large-6 large-offset-3 columns"> -->
+                    <div class="row collapse postfix-round">
+                        <div class="small-9 columns">
+                            <input type="text" ng-model="artist.name" placeholder="Search for Artist/Band">
+                        </div>
+                        <div class="small-3 columns">
+                            <button ng-click="look_up_artist(artist)" ng-class="{disabled: !artist.name}" class="button postfix">Go</button>
+                        </div>
+                    </div>
+                <!-- </div> -->
+        </form>
+    </div>
+
+
+</div>
