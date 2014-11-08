@@ -27,8 +27,8 @@ app.factory('apiDataFactory', function($http){
         return $http.get(apiUrls.artistEvents+artistName+ '&lat='+ location.lat+ '&long='+ location.long);
     };
 
-    factory.getEventsByLocation = function(location){
-        return $http.get(apiUrls.eventsByLocation+ '?lat='+ location.lat+ '&long='+ location.long);
+    factory.getEventsByLocation = function(location, pageNumber){
+        return $http.get(apiUrls.eventsByLocation+ '?lat='+ location.lat+ '&long='+ location.long+ '&page='+ pageNumber);
     };
 
     factory.getTopArtists = function(location){

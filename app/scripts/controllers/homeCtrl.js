@@ -1,6 +1,6 @@
 'use strict';
 var app = angular.module('angularMusicApp');
-app.controller('HomeCtrl', function ($scope, apiDataFactory, $state, usersGeolocationFactory) {
+app.controller('HomeCtrl', function ($filter, $scope, apiDataFactory, $state, usersGeolocationFactory) {
 
   if ($state.is('home')) {
       $state.go('home.intro');
@@ -35,14 +35,32 @@ app.controller('HomeCtrl', function ($scope, apiDataFactory, $state, usersGeoloc
                 $scope.location_country = results.data.topartists['@attr'].country;
             });
 
-        apiDataFactory.getEventsByLocation(location)
+        apiDataFactory.getEventsByLocation(location, '1')
             .then(function(results){
                 $scope.events = results.data.events.event;
-                // console.log(results);
-                // $scope.location_country = results.data.topartists['@attr'].country;
             });
 
     });
+
+    $scope.dataset_test = new Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+    $scope.currentPage = 1;
+
+    $scope.updateEventPage = function(pageNumber)
+    {
+        $scope.events = null;
+        $scope.currentPage = pageNumber;
+
+        geoLocationPromise.then(function(location){
+            apiDataFactory.getEventsByLocation(location, pageNumber.toString())
+                .then(function(results){
+                    $scope.events = results.data.events.event;
+                });
+        });
+    }
+
+    // var datetest = new Date('2014-11-22 20:00:00');
+
+    // console.log($filter('date')(datetest, 'shortTime'));
 
 
 
