@@ -1,13 +1,15 @@
 <!-- <div ng-controller="SongCtrl"> -->
-<div>
+<!-- <div> -->
 
-    <div class="header">
+<!--     <div class="header">
         <a ui-sref="home"><h3 class="text-muted">angular music app</h3></a>
-    </div>
+    </div> -->
+
+        <div ng-include="'views/templates/nav-bar.html'"></div>
+
 
     <div id="music-data">
 
-        <div ng-include="'views/templates/search-bar.html'"></div>
 
         <br>
 
@@ -25,4 +27,4 @@
         <div ng-show="artistData" ng-include="'views/templates/related-artists.html'"></div>
     </div>
 
-</div>
+<!-- </div> -->
