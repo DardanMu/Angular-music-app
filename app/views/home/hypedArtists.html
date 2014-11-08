@@ -36,14 +36,16 @@
 
 <ul class="artist-list medium-block-grid-5">
     <li class="artist-list__item" ng-repeat="artist in hypedArtists">
-        <figure class="effect-selena">
-            <img ng-src="{{artist.image[2]['#text']}}" alt=""/>
-            <figcaption>
-                <h2>{{artist.name}}</h2>
-                <!-- <p>Selena is a tiny-winged bird.</p> -->
-                <!-- <a ui-sref="look-up-artist({artist: artist.name})">View more</a> -->
-            </figcaption>
-        </figure>
+        <a ui-sref="look-up-artist({artist: artist.name})">
+            <figure class="effect-steve">
+                <img ng-src="{{artist.image[2]['#text']}}" alt=""/>
+                <figcaption>
+                    <!-- <h2>{{artist.name}}</h2> -->
+                    <p>{{artist.name}}</p>
+
+                </figcaption>
+            </figure>
+        </a>
     </li>
 </ul>
 
