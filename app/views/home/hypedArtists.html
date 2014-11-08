@@ -1,40 +1,6 @@
-<!-- <p>hyped artsits</p> -->
-
 <p ng-hide="hypedArtists">Loading...</p>
 
-<!-- <ul>
-    <li ng-repeat="artist in hypedArtists">
-        <a ui-sref="look-up-artist({artist: artist.name})">
-            {{artist.name}}
-            <img ng-src="{{artist.image[3]['#text']}}" alt="">
-        </a>
-    </li>
-</ul> -->
-
-
-
-
-<!-- <div class="grid">
-    <figure class="effect-selena">
-        <img src="img/10.jpg" alt="img10"/>
-        <figcaption>
-            <h2>Happy <span>Selena</span></h2>
-            <p>Selena is a tiny-winged bird.</p>
-            <a href="#">View more</a>
-        </figcaption>
-    </figure>
-    <figure class="effect-selena">
-        <img src="img/31.jpg" alt="img31"/>
-        <figcaption>
-            <h2>Happy <span>Selena</span></h2>
-            <p>Selena is a tiny-winged bird.</p>
-            <a href="#">View more</a>
-        </figcaption>
-    </figure>
-</div> -->
-
-
-<ul class="artist-list medium-block-grid-5">
+<ul class="artist-list small-block-grid-2 medium-block-grid-3 large-block-grid-5">
     <li class="artist-list__item" ng-repeat="artist in hypedArtists">
         <a ui-sref="look-up-artist({artist: artist.name})">
             <figure class="effect-steve">
@@ -42,21 +8,8 @@
                 <figcaption>
                     <!-- <h2>{{artist.name}}</h2> -->
                     <p>{{artist.name}}</p>
-
                 </figcaption>
             </figure>
         </a>
     </li>
 </ul>
-
-
-
-
-<!-- <ul class="medium-block-grid-6">
-    <li ng-repeat="artist in hypedArtists">
-        <a ui-sref="look-up-artist({artist: artist.name})">
-            {{artist.name}}
-            <img ng-src="{{artist.image[3]['#text']}}" alt="">
-        </a>
-    </li>
-</ul> -->
