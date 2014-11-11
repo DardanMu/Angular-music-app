@@ -120,6 +120,36 @@ body {
     display: block;
 }
 
+.pagination--events{
+    margin-top: 5px;
+}
+
+.events__list{
+
+    li{
+        // display: inline;
+        border-top: 1px solid;
+        border-bottom: 1px solid;
+        margin: 0px 2% 20px 2%;
+        padding: 1%;
+
+        img{
+            float: left;
+            margin-right: 10%;
+            width: 128px;
+            height: 128px;
+        }
+    }
+
+    .events__list--even{
+        background-color: #9DB8BC;
+    }
+
+    .events__list--odd{
+        background-color: #D1DEE0;
+    }
+}
+
 //artist list styles
 
 .artist-list{
