@@ -24,7 +24,7 @@
 
         <span>
             {{event.title}} <br>
-            {{event.start_time | date:'medium'}} <br>
+            {{event.start_time | dateFormat:'EEEE d MMMM, h:mma'}} <br>
             {{ event.venue_name }} - {{ event.region_name }}
         </span>
 

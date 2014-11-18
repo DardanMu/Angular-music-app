@@ -8,11 +8,6 @@ app.controller('HomeCtrl', function ($filter, $scope, apiDataFactory, $state, us
 
   var geoLocationPromise = usersGeolocationFactory.getLocation();
 
-  // geoLocationPromise.then(function(data){
-  //     $scope.location = data;
-  //     // console.log(data);
-  // });
-
   $scope.look_up_artist = function(artistObj)
   {
       $state.go('look-up-artist', {artist: artistObj.name});
@@ -55,11 +50,5 @@ app.controller('HomeCtrl', function ($filter, $scope, apiDataFactory, $state, us
                 });
         });
     }
-
-    // var datetest = new Date('2014-11-22 20:00:00');
-
-    // console.log($filter('date')(datetest, 'shortTime'));
-
-
 
 });
