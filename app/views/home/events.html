@@ -4,9 +4,9 @@
     <ul class="pagination">
     <li class="arrow" ng-class="{unavailable: currentPage == 1}"><a ng-click="(currentPage == 1) || updateEventPage(currentPage - 1)">&laquo;</a></li>
 
-        <li ng-repeat="item in dataset_test" ng-class="{'current': (item == currentPage)}">
-            <a ng-click="(currentPage == item) || updateEventPage(item)">
-                {{item}}
+        <li ng-repeat="n in [] | range:10" ng-class="{'current': (n == currentPage)}">
+            <a ng-click="(currentPage == n) || updateEventPage(n)">
+                {{n}}
             </a>
         </li>
 
