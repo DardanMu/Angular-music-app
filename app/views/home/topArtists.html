@@ -1,6 +1,6 @@
 <img class="loader__image" ng-hide="topArtists" src="images/loading.gif" alt="Loading..."/>
 
-<h4 ng-show="topArtists"> <small>Top artists in:</small> {{location_country}} </h4>
+<h4 ng-show="topArtists" class="location-subheading--top-artists"> <small>Top artists in:</small> {{location_country}} </h4>
 
 <ul class="artist-list small-block-grid-2 medium-block-grid-3 large-block-grid-5">
     <li class="artist-list__item" ng-repeat="artist in topArtists">

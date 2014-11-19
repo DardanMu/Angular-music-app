@@ -11,6 +11,8 @@
 body {
     // padding-top: 20px;
     padding-bottom: 20px;
+    background: #000 url(../images/stardust.png) repeat;
+    // color: #fff;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -110,8 +112,11 @@ body {
 .homepage-tabs{
     display:block;
 
+    a:hover{
+        background-color: $secondary-color;
+    }
     .homepage-tabs--active{
-        background-color: #019A70;
+        background-color: $primary-color !important;
     }
 }
 
@@ -334,8 +339,13 @@ figure.effect-steve:hover p {
     transform: scale3d(1,1,1);
 }
 
-
-
+.location-subheading--top-artists{
+    margin: 0 0 0 2%;
+    color: $primary-color;
+    small{
+        color: $ghost;
+    }
+}
 
 
 
