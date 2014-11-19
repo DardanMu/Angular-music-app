@@ -134,7 +134,7 @@ body {
     li{
         // display: inline;
         border-top: 1px solid;
-        border-bottom: 1px solid;
+        // border-bottom: 1px solid;
         margin: 0px 2% 20px 2%;
         padding: 1%;
 
@@ -147,12 +147,35 @@ body {
     }
 
     .events__list--even{
-        background-color: #9DB8BC;
+        // background-color: #9DB8BC;
     }
 
     .events__list--odd{
-        background-color: #D1DEE0;
+        background-color:rgba(51,51,51,0.4);
+        // background-color: #D1DEE0;
     }
+
+    li h5 {
+        // background: #fff;
+        // color: #2d434e;
+
+        // margin-top: 10em;
+        padding: 0.5em;
+        font-weight: 400;
+        opacity: 1;
+        -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+        transition: opacity 0.35s, transform 0.35s;
+        -webkit-transform: scale3d(0.9,0.9,1);
+        transform: scale3d(0.9,0.9,1);
+    }
+
+    li:hover h5 {
+        opacity: 1;
+        -webkit-transform: scale3d(1,1,1);
+        transform: scale3d(1,1,1);
+    }
+
+
 }
 
 //artist list styles

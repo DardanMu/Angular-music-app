@@ -19,15 +19,15 @@
 
 <ul class="no-bullet events__list">
     <li class="clearfix" ng-repeat="event in events | orderBy: 'start_time'" ng-class-odd="'events__list--odd'" ng-class-even="'events__list--even'">
+        <a class="right button" ng-href="{{event.url}}">More info &raquo;</a>
         <img ng-if="event.image.medium.url" ng-src="{{event.image.medium.url}}" alt=""/>
         <img ng-if="!event.image.medium.url" src="images/imageNotFound.jpg" alt="Image not available"/>
 
+        <h5 class="text-center">{{event.title}}</h5>
         <span>
-            <h5 class="text-center">{{event.title}}</h5> <br>
             {{event.start_time | dateFormat:'EEEE d MMMM, h:mma'}} <br>
             {{ event.venue_name }} - {{ event.region_name }}
         </span>
 
-        <a class="right button" ng-href="{{event.url}}">More info &raquo;</a>
     </li>
 </ul>
