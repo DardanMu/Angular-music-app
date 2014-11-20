@@ -24,7 +24,7 @@
         <img ng-if="event.image.medium.url" ng-src="{{event.image.medium.url}}" alt=""/>
         <img ng-if="!event.image.medium.url" src="images/imageNotFound.jpg" alt="Image not available"/>
 
-        <h5 class="text-center">{{event.title}}</h5>
+        <h5 class="text-center">{{event.title | truncate:110:'...'}}</h5>
         <span>
             {{event.start_time | dateFormat:'EEEE d MMMM, h:mma'}} <br>
             {{ event.venue_name }} - {{ event.region_name }}
