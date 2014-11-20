@@ -1,4 +1,3 @@
-<!-- <span>{{1288323623006 | date:'medium'}}</span><br> -->
 
 <div class="pagination--events pagination-centered">
     <ul class="pagination">
@@ -14,9 +13,7 @@
     </ul>
 </div>
 
-<!-- <img class="loader__image" ng-hide="events" src="images/loading.gif" alt="Loading..."/> -->
 <div class="spinner" ng-hide="events"></div>
-
 
 <ul class="no-bullet events__list">
     <li class="clearfix" ng-repeat="event in events | orderBy: 'start_time'" ng-class-odd="'events__list--odd'" ng-class-even="'events__list--even'">
