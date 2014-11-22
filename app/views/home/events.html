@@ -18,8 +18,8 @@
 <ul class="no-bullet events__list">
     <li class="clearfix" ng-repeat="event in events | orderBy: 'start_time'" ng-class-odd="'events__list--odd'" ng-class-even="'events__list--even'">
         <a class="right button" ng-href="{{event.url}}">More info &raquo;</a>
-        <img ng-if="event.image.medium.url" ng-src="{{event.image.medium.url}}" alt=""/>
-        <img ng-if="!event.image.medium.url" src="images/imageNotFound.jpg" alt="Image not available"/>
+        <img ng-if="event.image.medium.url" ng-src="{{event.image.medium.url}}"/>
+        <img ng-if="!event.image.medium.url" src="images/image-not-available.png"/>
 
         <h5 class="text-center">{{event.title | truncate:110:'...'}}</h5>
         <span>
