@@ -17,7 +17,11 @@ app.factory('usersGeolocationFactory', function($q, geolocation){
                 deferred.resolve(location);
 
             }).catch(function(error){
-                deferred.reject(false);
+                console.log(error);
+                console.log('Your default location will be set to London, UK');
+
+                var defaultLocation = {lat: 51.5072928, long: -0.1276536};
+                deferred.reject(defaultLocation);
             });
         }
         return deferred.promise;

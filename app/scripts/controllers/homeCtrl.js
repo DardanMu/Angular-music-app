@@ -7,6 +7,14 @@ app.controller('HomeCtrl', function ($filter, $scope, apiDataFactory, $state, us
   };
 
   var geoLocationPromise = usersGeolocationFactory.getLocation();
+  var getTopArtistsByLocation = function(location)
+  {
+    apiDataFactory.getTopArtists(location)
+    .then(function(results){
+        $scope.topArtists = results.data.topartists.artist;
+        $scope.location_country = results.data.topartists['@attr'].country;
+    });
+  }
 
   $scope.look_up_artist = function(artistObj)
   {
@@ -22,12 +30,9 @@ app.controller('HomeCtrl', function ($filter, $scope, apiDataFactory, $state, us
 
     //top artsits
     geoLocationPromise.then(function(location){
-
-        apiDataFactory.getTopArtists(location)
-            .then(function(results){
-                $scope.topArtists = results.data.topartists.artist;
-                $scope.location_country = results.data.topartists['@attr'].country;
-            });
+        getTopArtistsByLocation(location);
+    }, function(defaultLocation){
+        getTopArtistsByLocation(defaultLocation);
     });
 
 });

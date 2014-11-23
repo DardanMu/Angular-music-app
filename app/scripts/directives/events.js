@@ -7,6 +7,13 @@ app.directive('events', function(){
         controller: function($state, $scope, apiDataFactory, usersGeolocationFactory) {
 
             var geoLocationPromise = usersGeolocationFactory.getLocation();
+            var getEventsByLocation = function(location, pageNumber)
+            {
+                apiDataFactory.getEventsByLocation(location, pageNumber.toString())
+                .then(function(results){
+                    $scope.events = results.data.events.event;
+                });
+            }
 
             $scope.currentPage = 1;
             $scope.updateEventPage = function(pageNumber)
@@ -15,10 +22,9 @@ app.directive('events', function(){
                 $scope.currentPage = pageNumber;
 
                 geoLocationPromise.then(function(location){
-                    apiDataFactory.getEventsByLocation(location, pageNumber.toString())
-                        .then(function(results){
-                            $scope.events = results.data.events.event;
-                        });
+                    getEventsByLocation(location, pageNumber);
+                }, function(defaultLocation){
+                    getEventsByLocation(defaultLocation, pageNumber);
                 });
             }
 
