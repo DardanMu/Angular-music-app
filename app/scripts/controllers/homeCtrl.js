@@ -17,7 +17,6 @@ app.controller('HomeCtrl', function ($filter, $scope, apiDataFactory, $state, us
     apiDataFactory.getHypedArtists()
         .then(function(hypedArtists){
             $scope.hypedArtists = hypedArtists.data.artists.artist;
-            // console.log(hypedArtists.data);
         });
 
 
@@ -29,26 +28,6 @@ app.controller('HomeCtrl', function ($filter, $scope, apiDataFactory, $state, us
                 $scope.topArtists = results.data.topartists.artist;
                 $scope.location_country = results.data.topartists['@attr'].country;
             });
-
-        apiDataFactory.getEventsByLocation(location, '1')
-            .then(function(results){
-                $scope.events = results.data.events.event;
-            });
-
     });
-
-    $scope.currentPage = 1;
-    $scope.updateEventPage = function(pageNumber)
-    {
-        $scope.events = null;
-        $scope.currentPage = pageNumber;
-
-        geoLocationPromise.then(function(location){
-            apiDataFactory.getEventsByLocation(location, pageNumber.toString())
-                .then(function(results){
-                    $scope.events = results.data.events.event;
-                });
-        });
-    }
 
 });
