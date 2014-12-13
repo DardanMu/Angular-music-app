@@ -42,7 +42,7 @@ angular.module('angularMusicApp', [
     .state('look-up-artist', {
       url: "/look-up-artist?artist",
       reloadOnSearch: false,
-      templateUrl: "views/main.html",
+      templateUrl: "views/artist/main.html",
       controller: 'SongCtrl'
     })
   });
