@@ -15,16 +15,17 @@
 
 
         <div class="row">
-            <div class="large-6 columns" ng-show="artistData" ng-include="'views/templates/artist-info.html'"></div>
+            <div class="large-6 columns" ng-show="artistData" ng-include="'views/artist/artist-info.html'"></div>
             <div class="large-6 columns" playlistwidget data="{{playlistValue}}" id="flash-player"></div>
         </div>
 
 
         <!-- <div class="row">
-            <div class="col-md-12" ng-show="artistEvents" ng-include="'views/templates/events.html'"></div>
+            <div class="col-md-12" ng-show="artistEvents" ng-include="'views/artist/events.html'"></div>
         </div> -->
+        <div ng-if="artistData" artist-events text="{{artistData.name}}"></div>
 
-        <div ng-show="artistData" ng-include="'views/templates/related-artists.html'"></div>
+        <div ng-show="artistData" ng-include="'views/artist/related-artists.html'"></div>
     </div>
 
 <!-- </div> -->
