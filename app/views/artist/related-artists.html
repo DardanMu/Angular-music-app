@@ -1,7 +1,27 @@
+<!-- <div class="row"> -->
+    <div class="small-12 columns">
+        <h4>Similar artists</h4>
 
-<h4>Similar artists</h4>
-<ul id="similar-artists">
-	<li ng-repeat="artist in artistData.similar.artist">
-		<a ng-click="look_up_artist(artist)"> {{artist.name}} </a>
-	</li>
-</ul>
+        <ul class="artist-list small-block-grid-2 medium-block-grid-3 large-block-grid-5">
+            <li class="artist-list__item" ng-repeat="artist in artistData.similar.artist">
+                <!-- <a ui-sref="look-up-artist({artist: artist.name})"> -->
+                <a ng-click="look_up_artist(artist)" >
+                    <figure class="effect-steve">
+                        <img ng-src="{{artist.image[2]['#text']}}"/>
+                        <figcaption>
+                            <!-- <h2>{{artist.name}}</h2> -->
+                            <p>{{artist.name}}</p>
+                        </figcaption>
+                    </figure>
+                </a>
+            </li>
+        </ul>
+
+
+
+    </div>
+<!-- </div> -->
+
+
+
+
