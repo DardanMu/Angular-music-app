@@ -3,7 +3,8 @@ var app = angular.module('angularMusicApp');
 app.controller('HomeCtrl', function ($filter, $scope, apiDataFactory, $state, usersGeolocationFactory) {
 
   if ($state.is('home')) {
-      $state.go('home.intro');
+      // $state.go('home.intro');
+      $state.go('home.hypedArtists');
   };
 
   var geoLocationPromise = usersGeolocationFactory.getLocation();
