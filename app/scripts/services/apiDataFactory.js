@@ -13,7 +13,6 @@ app.factory('apiDataFactory', function($http){
       'hypedArtists'        : 'http://music-app-server.local:3000/api/v1.0/hypedArtists'
     };
 
-
     var factory = {};
 
     factory.getSongs = function(artistName){
