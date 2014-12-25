@@ -15,6 +15,7 @@ app.factory('apiDataFactory', function($http){
 
     var factory = {};
 
+
     factory.getSongs = function(artistName){
         return $http.get(apiUrls.songsByArtist+artistName);
     };
