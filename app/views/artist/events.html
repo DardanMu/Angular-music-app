@@ -1,0 +1,22 @@
+
+<div class="row">
+    <div class="small-12 columns">
+
+    <h4> Upcoming events featuring {{artistName}} </h4>
+    <div class="spinner" ng-hide="events"></div>
+
+    <p ng-show="(events.events).length == 0">
+        There are currently no music events featuring {{artistName}} in your country.
+    </p>
+
+    <ul class="no-bullet events__list">
+        <li ng-repeat="event in events.events" ng-class-odd="'events__list--odd'" ng-class-even="'events__list--even'">
+        <a class="right button" ng-href="{{event.url}}">More info &raquo;</a>
+            <h4>{{event.title}} <small>- {{event.startDate | dateFormat:'EEEE d MMMM'}}</small></h4>
+            <p>{{event.venue.name}} - {{event.venue.location.city}}</p>
+        </li>
+    </ul>
+
+
+    </div>
+</div>

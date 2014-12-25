@@ -3,8 +3,26 @@
 app.directive('artistEvents', function(){
     return {
         restrict: 'A',
-        templateUrl: 'views/templates/events.html',
-        controller: function($state, $scope, lastFmFactory) {
+        templateUrl: 'views/artist/events.html',
+        // scope: {
+        //     artistName: '='
+        // },
+        controller: function($state, $location, $scope, apiDataFactory, usersGeolocationFactory) {
+
+            var geoLocationPromise = usersGeolocationFactory.getLocation();
+
+            var artistName = $location.search().artist;
+            $scope.artistName = artistName;
+
+            // console.log(artistName);
+
+
+            geoLocationPromise.then(function(location){
+                apiDataFactory.getArtistEventData(artistName, location).then(function(events){
+                    $scope.events = events.data;
+                    console.log(events.data);
+                });
+            });
 
         }
     };

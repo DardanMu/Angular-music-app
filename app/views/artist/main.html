@@ -1,0 +1,16 @@
+<div ng-include="'views/templates/nav-bar.html'"></div>
+
+
+<div id="artist-data">
+    <div class="spinner" ng-hide="artistData"></div>
+
+    <div class="row">
+        <div class="large-6 columns" ng-show="artistData" ng-include="'views/artist/artist-info.html'"></div>
+        <div class="large-6 columns" playlistwidget data="{{playlistValue}}" id="flash-player"></div>
+    </div>
+
+    <div ng-if="artistData" artist-events ></div>
+
+    <div ng-show="artistData" ng-include="'views/artist/related-artists.html'"></div>
+</div>
+

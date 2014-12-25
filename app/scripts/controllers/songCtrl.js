@@ -18,7 +18,8 @@ app.controller('SongCtrl', function ($scope, apiDataFactory, $sce, $stateParams,
         $location.search('artist', data.artist.name);
         //get artist events here
         $scope.artistData = data.artist;
-        $scope.artistEvents = data.events;
+        // $scope.artistEvents = data.events;
+        // console.log(data);
         $scope.artistBio = $sce.trustAsHtml(data.artist.bio.summary);
 
         //grooveshark api
