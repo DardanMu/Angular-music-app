@@ -3,41 +3,51 @@
 app.factory('apiDataFactory', function($http){
     $http.defaults.useXDomain = true;
 
-    var apiUrls = {
-      'songsByArtist'       : 'http://music-app-server.local:3000/api/v1.0/songsByArtist?artist=',
-      'artistInfo'          : 'http://music-app-server.local:3000/api/v1.0/artist?name=',
-      'artistEvents'        : 'http://music-app-server.local:3000/api/v1.0/eventsByArtist?artist=',
+    var ENV = 'development';
 
-      'eventsByLocation'    : 'http://music-app-server.local:3000/api/v1.0/eventsByLocation',
-      'topArtists'          : 'http://music-app-server.local:3000/api/v1.0/topArtistsByLocation',
-      'hypedArtists'        : 'http://music-app-server.local:3000/api/v1.0/hypedArtists'
+    var baseUrl = {
+            development: {
+                'url' : 'http://music-app-server.local:3000'
+            },
+            production: {
+                'url' : 'http://music-discovery-app.dardanmu.com'
+            }
+    }
+
+    var apiEndpoints = {
+      'songsByArtist'       : '/api/v1.0/songsByArtist?artist=',
+      'artistInfo'          : '/api/v1.0/artist?name=',
+      'artistEvents'        : '/api/v1.0/eventsByArtist?artist=',
+
+      'eventsByLocation'    : '/api/v1.0/eventsByLocation',
+      'topArtists'          : '/api/v1.0/topArtistsByLocation',
+      'hypedArtists'        : '/api/v1.0/hypedArtists'
     };
 
     var factory = {};
 
-
     factory.getSongs = function(artistName){
-        return $http.get(apiUrls.songsByArtist+artistName);
+        return $http.get(baseUrl[ENV].url + apiEndpoints.songsByArtist+artistName);
     };
 
     factory.getArtistData = function(artistName){
-        return $http.get(apiUrls.artistInfo+artistName);
+        return $http.get(baseUrl[ENV].url + apiEndpoints.artistInfo+artistName);
     };
 
     factory.getArtistEventData = function(artistName, location){
-        return $http.get(apiUrls.artistEvents+artistName+ '&lat='+ location.lat+ '&long='+ location.long);
+        return $http.get(baseUrl[ENV].url + apiEndpoints.artistEvents+artistName+ '&lat='+ location.lat+ '&long='+ location.long);
     };
 
     factory.getEventsByLocation = function(location, pageNumber){
-        return $http.get(apiUrls.eventsByLocation+ '?lat='+ location.lat+ '&long='+ location.long+ '&page='+ pageNumber);
+        return $http.get(baseUrl[ENV].url + apiEndpoints.eventsByLocation+ '?lat='+ location.lat+ '&long='+ location.long+ '&page='+ pageNumber);
     };
 
     factory.getTopArtists = function(location){
-        return $http.get(apiUrls.topArtists+ '?lat='+ location.lat+ '&long='+ location.long);
+        return $http.get(baseUrl[ENV].url + apiEndpoints.topArtists+ '?lat='+ location.lat+ '&long='+ location.long);
     };
 
     factory.getHypedArtists = function(){
-        return $http.get(apiUrls.hypedArtists, { cache: true});
+        return $http.get(baseUrl[ENV].url + apiEndpoints.hypedArtists, { cache: true});
     };
 
 
