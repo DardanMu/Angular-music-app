@@ -3,14 +3,14 @@
 app.factory('apiDataFactory', function($http){
     $http.defaults.useXDomain = true;
 
-    var ENV = 'development';
+    var ENV = 'production';
 
     var baseUrl = {
             development: {
                 'url' : 'http://music-app-server.local:3000'
             },
             production: {
-                'url' : 'http://music-discovery-app.dardanmu.com'
+                'url' : 'http://api.music-discovery-app.dardanmu.com'
             }
     }
 
