@@ -5,7 +5,7 @@
 <ul class="artist-list small-block-grid-2 medium-block-grid-3 large-block-grid-5">
     <li class="artist-list__item" ng-repeat="artist in topArtists">
         <a ui-sref="look-up-artist({artist: artist.name})">
-            <figure class="effect-steve">
+            <figure class="artist-list__artist">
                 <img ng-src="{{artist.image[2]['#text']}}" alt=""/>
                 <figcaption>
                     <!-- <h2>{{artist.name}}</h2> -->

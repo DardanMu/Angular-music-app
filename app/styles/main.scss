@@ -191,7 +191,7 @@ body {
 
     figure {
         position: relative;
-        float: left;
+        // float: left;
         overflow: hidden;
         margin: 10px 1%;
         // min-width: 320px;
@@ -213,6 +213,7 @@ body {
                 width: 250px;
 
                 opacity: 0.8;
+                border: 1px solid $aluminum;
             }
 
             figcaption {
@@ -271,7 +272,7 @@ body {
 
 // steve style
 
-figure.effect-steve {
+figure.artist-list__artist {
     z-index: auto;
     overflow: visible;
     // background: #000;
@@ -280,8 +281,8 @@ figure.effect-steve {
     // background: linear-gradient(-45deg, #EC65B7 0%,#05E0D8 100%);
 }
 
-figure.effect-steve:before,
-figure.effect-steve h2:before {
+figure.artist-list__artist:before,
+figure.artist-list__artist h2:before {
     position: absolute;
     top: 0;
     left: 0;
@@ -294,16 +295,16 @@ figure.effect-steve h2:before {
     transition: opacity 0.35s;
 }
 
-figure.effect-steve:before {
+figure.artist-list__artist:before {
     box-shadow: 0 3px 30px rgba(0,0,0,0.8);
     opacity: 0;
 }
 
-figure.effect-steve figcaption {
+figure.artist-list__artist figcaption {
     z-index: 1;
 }
 
-figure.effect-steve img {
+figure.artist-list__artist img {
     opacity: 1;
     // -webkit-transition: opacity 0.35s;
     // transition: opacity 0.35s;
@@ -314,23 +315,23 @@ figure.effect-steve img {
     transform: perspective(1000px) translate3d(0,0,0);
 }
 
-figure.effect-steve h2,
-figure.effect-steve p {
+figure.artist-list__artist h2,
+figure.artist-list__artist p {
     background: #fff;
     color: #2d434e;
 }
 
-figure.effect-steve h2 {
+figure.artist-list__artist h2 {
     position: relative;
     margin-top: 2em;
     padding: 0.25em;
 }
 
-figure.effect-steve h2:before {
+figure.artist-list__artist h2:before {
     box-shadow: 0 1px 10px rgba(0,0,0,0.5);
 }
 
-figure.effect-steve p {
+figure.artist-list__artist p {
     margin-top: 10em;
     padding: 0.5em;
     font-weight: 400;
@@ -341,22 +342,22 @@ figure.effect-steve p {
     transform: scale3d(0.9,0.9,1);
 }
 
-figure.effect-steve:hover:before {
+figure.artist-list__artist:hover:before {
     opacity: 1;
 }
 
-figure.effect-steve:hover img {
+figure.artist-list__artist:hover img {
     -webkit-transform: perspective(1000px) translate3d(0,0,21px);
     transform: perspective(1000px) translate3d(0,0,21px);
 
     // opacity: 0.6;
 }
 
-figure.effect-steve:hover h2:before {
+figure.artist-list__artist:hover h2:before {
     opacity: 0;
 }
 
-figure.effect-steve:hover p {
+figure.artist-list__artist:hover p {
     opacity: 1;
     -webkit-transform: scale3d(1,1,1);
     transform: scale3d(1,1,1);

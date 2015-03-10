@@ -6,7 +6,7 @@
             <li class="artist-list__item" ng-repeat="artist in artistData.similar.artist">
                 <!-- <a ui-sref="look-up-artist({artist: artist.name})"> -->
                 <a ng-click="look_up_artist(artist)" >
-                    <figure class="effect-steve">
+                    <figure class="artist-list__artist">
                         <img ng-src="{{artist.image[2]['#text']}}"/>
                         <figcaption>
                             <!-- <h2>{{artist.name}}</h2> -->
