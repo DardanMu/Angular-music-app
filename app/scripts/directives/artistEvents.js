@@ -14,13 +14,9 @@ app.directive('artistEvents', function(){
             var artistName = $location.search().artist;
             $scope.artistName = artistName;
 
-            // console.log(artistName);
-
-
             geoLocationPromise.then(function(location){
                 apiDataFactory.getArtistEventData(artistName, location).then(function(events){
                     $scope.events = events.data;
-                    console.log(events.data);
                 });
             });
 
